@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="79ff4036-c363-47d5-b38b-e442c3367af0">
+	<property name="ireport.zoom" value="1.9487171000000048"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="16"/>
+	<parameter name="user" class="java.lang.String"/>
+	<parameter name="fromDate" class="java.lang.String"/>
+	<parameter name="toDate" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+    v_outgoing.`id_outgoing` AS v_outgoing_id_outgoing,
+    v_outgoing.`id_project` AS v_outgoing_id_project,
+    v_outgoing.`transaction_date` AS v_outgoing_transaction_date,
+    v_outgoing.`project_name` AS v_outgoing_project_name,
+    v_outgoing.`id_items` AS v_outgoing_id_items,
+    v_outgoing.`items_name` AS v_outgoing_items_name,
+    v_outgoing.`quantity` AS v_outgoing_quantity,
+    v_outgoing.`nip` AS v_outgoing_nip,
+    v_outgoing.`pic` AS v_outgoing_pic,
+    v_outgoing.`type_transaction` AS v_outgoing_type_transaction
+FROM
+    v_outgoing v_outgoing
+WHERE
+    DATE(v_outgoing.transaction_date) BETWEEN DATE($P{fromDate}) AND DATE($P{toDate})
+]]>
+	</queryString>
+	<field name="v_outgoing_id_outgoing" class="java.lang.String"/>
+	<field name="v_outgoing_id_project" class="java.lang.String"/>
+	<field name="v_outgoing_transaction_date" class="java.sql.Timestamp"/>
+	<field name="v_outgoing_project_name" class="java.lang.String"/>
+	<field name="v_outgoing_id_items" class="java.lang.String"/>
+	<field name="v_outgoing_items_name" class="java.lang.String"/>
+	<field name="v_outgoing_quantity" class="java.lang.String"/>
+	<field name="v_outgoing_nip" class="java.lang.String"/>
+	<field name="v_outgoing_pic" class="java.lang.String"/>
+	<field name="v_outgoing_type_transaction" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="30" width="555" height="31" uuid="824d82ac-4c2c-47ce-94cb-688e3bc1fedb"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Ruko Tanjung Mas Raya. Blok B1 no.37
+Jl Tanjung Barat Raya. Jagakarsa. Jakarta Selatan. 12530]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="30" forecolor="#000000" backcolor="#FF0033" uuid="e21e1ab1-f58c-42ab-99c4-075a1cadc883"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PT. Padicon Teknologi Informasi]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="61" width="555" height="1" uuid="09842022-db02-4458-9bf7-80ee26d06e21"/>
+			</line>
+			<image>
+				<reportElement x="24" y="0" width="91" height="51" uuid="abfd61b5-6274-4245-8046-02453b26116a"/>
+				<imageExpression><![CDATA["C:\\Users\\rafii\\Documents\\NetBeansProjects\\Project_Inventory_PTI\\src\\img\\LOGO_PADICON.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="37" splitType="Stretch">
+			<textField>
+				<reportElement x="38" y="15" width="156" height="15" uuid="aa1e1884-0801-4a1d-a762-180dfb3f9f16"/>
+				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd-MM-yyyy").format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="24" y="15" width="14" height="15" uuid="70e91dcc-e7db-4750-9fb3-dcab73a86e1b"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="0" width="14" height="15" uuid="98acbefd-d7c3-418e-8012-922ff46f0abf"/>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="38" y="0" width="156" height="15" uuid="57a5d689-8c0e-4d5a-950e-a0a8706afa61"/>
+				<text><![CDATA[Report Data Transaksi Outgoing]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="26" height="15" uuid="36a2cde0-b029-41d7-8d16-66e6fa474d79"/>
+				<text><![CDATA[Hal ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="15" width="26" height="15" uuid="dae7562d-699f-462f-95b3-078a6384f148"/>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="23" y="41" width="100" height="20" uuid="c7a49d14-59ad-4742-a89f-084c30c07d4e"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[No Outgoing]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="123" y="41" width="80" height="20" uuid="2c2a7586-9942-44ee-b6ce-83f38818c177"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Project Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="203" y="41" width="79" height="20" uuid="fff9a6d9-eaf1-4ed8-9ae4-1e93e0a58a33"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="282" y="41" width="155" height="20" uuid="2e1f68fc-2d12-45e5-92c9-16a8f8296cbd"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Item Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="41" width="23" height="20" uuid="72ecbe27-bd55-4e8c-b54f-cbcf2b855b2b"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="437" y="41" width="26" height="20" uuid="caf65149-9d2e-4844-a641-9e16a5e60dec"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Qty]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="463" y="41" width="92" height="20" uuid="a7d13c8a-5901-410b-8cd5-196a5b73f098"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Pic]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="23" y="0" width="100" height="30" uuid="165ba1ff-fd30-4ea4-b290-25fbdfc2e071"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{v_outgoing_id_outgoing}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="23" height="30" uuid="2fb45fe4-ec18-4b44-b66c-d55d431fa8ae"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="123" y="0" width="80" height="30" uuid="d6680f1e-1555-427e-9b72-2699d6a6e4a7"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{v_outgoing_project_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="203" y="0" width="79" height="30" uuid="8e6dc923-afec-4385-acde-78f97887605d"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{v_outgoing_transaction_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="282" y="0" width="155" height="30" uuid="643ad23b-0014-4d3e-bae0-48a77e628c4e"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{v_outgoing_items_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="437" y="0" width="26" height="30" uuid="71475189-c220-4edb-928d-eab9f8838919"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{v_outgoing_quantity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="463" y="0" width="92" height="30" uuid="63b5968b-6e65-410f-998e-55d3f90a6d8f"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{v_outgoing_pic}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="59" splitType="Stretch">
+			<textField>
+				<reportElement x="418" y="31" width="137" height="27" uuid="fe1f8be1-0804-4aa0-b996-2895968ef2a3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{user}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="418" y="58" width="137" height="1" uuid="bc00850f-84d1-4d76-ac23-f9188f2d06ec"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="39" width="555" height="15" uuid="859c3ce9-456c-4fff-bb72-ca0a49eddbec"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
